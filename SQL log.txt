@@ -1,0 +1,56 @@
+create database project
+use project
+
+create table data
+(
+uid int primary key identity ,
+username varchar(100),
+date_of_start datetime,
+end_date datetime,
+amount int,
+interest int
+)
+
+select * from data
+drop table data
+
+insert into data values('Makhan','11/7/2012','12/8/2014',5000,500)
+delete from data
+
+select date_of_start
+from data
+
+create table administration
+(
+username varchar(100),
+pwd varchar(100),
+
+primary key (username,pwd)
+)
+
+drop table administration
+select * from administration
+
+insert into administration values('Rushang','PaWn3Rkill');
+insert into administration values ('Vandana','123456');
+
+
+select * from data
+delete from data
+
+
+select * from makhan_data
+
+set nocount on
+declare  @start datetime
+set @start = '1/1/2012'
+declare @end datetime
+set @end='1/31/2012'
+WHILE @start < @end+1
+BEGIN 
+    INSERT into makhan_data values (@start,'no',100) 
+    SET @start = @start + 1 
+END
+
+select * from makhan_data
+delete from makhan_data
